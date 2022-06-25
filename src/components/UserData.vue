@@ -4,10 +4,10 @@
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
+import { computed, inject } from 'vue';
 
 export default {
-  props: ['age', 'firstName', 'lastName'],
+  props: ['firstName', 'lastName'],
   //   computed: {
   //     userName() {
   //       return this.firstName + ' ' + this.lastName;
@@ -18,10 +18,15 @@ export default {
       return props.firstName + ' ' + props.lastName;
     });
 
+    const age = inject('user-age');
+
     console.log(context);
+
+    // context.emit('save-data'); //this.$emilt('save-data')
 
     return {
       userName: uName,
+      age,
     };
   },
 };
