@@ -13,10 +13,12 @@ export default {
   //       return this.firstName + ' ' + this.lastName;
   //     },
   //   },
-  setup(props) {
+  setup(props, context) {
     const uName = computed(function () {
       return props.firstName + ' ' + props.lastName;
     });
+
+    console.log(context);
 
     return {
       userName: uName,
